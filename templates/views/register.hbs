@@ -1,0 +1,331 @@
+<html>
+    <head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Node Js form</title>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+<style>
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: DodgerBlue;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 100px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+p{
+    color: #eee;
+
+
+}
+
+
+
+*{
+
+margin-right: 2px;
+}
+
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background:#92bde7;
+color: #eee;
+  line-height:1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding:1em;
+  margin-left:30px;
+  font-size: 16px;
+
+
+}
+
+.container{
+  max-width:1045px;
+  margin-top: 4px;
+
+  margin-right:auto;
+  padding:1em;
+display:block;
+
+}
+
+ul{
+  list-style: none;
+  padding:0;
+}
+
+.brand{
+  text-align: center;
+}
+
+.brand span{
+  color:#fff;
+}
+
+.wrapper{
+  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+}
+
+.wrapper > *{
+  padding: 1em;
+}
+
+.company-info{
+  background:#38312f;
+  margin-right: 1px;
+}
+
+.company-info h3, .company-info ul{
+  text-align: center;
+  margin:5px;
+}
+
+.contact{
+  background:#38312f;
+}
+
+/* FORM STYLES */
+.contact form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:20px;
+
+}
+
+.contact form label{
+  display:block;
+}
+
+.contact form p{
+  margin:0;
+}
+
+.contact form .full{
+  grid-column: 1 / 3;
+}
+
+.contact form button, .contact form input, .contact form textarea{
+  width:100%;
+  padding:1em;
+  border:1px solid #c9e6ff;
+}
+
+.contact form button{
+  background:#ffb300;
+  border:0;
+  text-transform: uppercase;
+}
+
+.contact form button:hover,.contact form button:focus{
+  background:#92bde7;
+  color:#fff;
+  outline:1;
+  transition: background-color 2s ease-out;
+}
+
+.alert{
+  text-align: center;
+  padding:10px;
+  background:#79c879;
+  color:#fff;
+  margin-bottom:10px;
+  display:none;
+}
+
+/* LARGE SCREENS */
+@media(min-width:700px){
+  .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .wrapper > *{
+    padding:2em;
+  }
+
+  .company-info h3, .company-info ul, .brand{
+    text-align: left;
+  }
+}
+
+
+</style>
+<meta name="google-site-verification" content="tzl2-iMZFWbHomyjvu76tJgzCKiWz0c2aBqsPWzU7Ck" />
+<link rel="canonical" href="./regular-html-version.html">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Best it training institute in gurgaon for all IT courses and basics computer courses. We provide best faculty for IT classes in gurgaon">
+<meta name="keywords" content="aws training in gurgaon, Angular js Course in gurgaon, basics computer, python course in gurgaon, seo course in gurgaon, digital marketing course in gurgaon, digital marketing insitute in gurgaon, best digital marketing insitute in gurgaon, ppc course in gurgaon, AWS course ">
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+
+    </head>
+    <body>
+ {{>navbar}}
+     <div class="super_container"> 
+  
+  <!-- Header -->
+  
+  <header class="header d-flex flex-row">
+  <div class="header_content d-flex flex-row align-items-center"> 
+    <!-- Logo -->
+    <div class="logo_container">
+      <div class="logo"> <img src="images/logo.png" alt=""> </div>
+    </div>
+    
+    <!-- Main Navigation -->
+   
+</header>
+
+
+<div class="container">
+ 
+     
+        <div class="col-sm-6 col-md-6 col-lg-6">
+    
+  <h1 class="brand"><span></span></h1>
+  <div class="wrapper">
+    <div class="company-info">
+      <h3>Office Address</h3>
+      <br>
+      <br>
+      <ul>
+        <li><i class="fa fa-road"></i> House No 1746, Sector 45, Gurgaon, Haryana, India</li>
+        <li><i class="fa fa-phone"></i> +91 7289908088 | 9717614047</li>
+        <li><i class="fa fa-envelope"></i> pkparveenbarak@gmail.com</li>
+      </ul>
+    </div>
+    <div class="contact">
+      <h3>Interested ! Register Now</h3>
+      <div class="alert">We Will Get Back To You Very Soon</div>
+      <form action="/register" method="POST">
+        <p>
+          <label>Name</label>
+          <input type="text" name="name" id="name" required>
+        </p>
+        <br/>
+      <p>
+          <label>Age</label>
+          <input type="number" name="age" id="age" required>
+        </p>
+         
+         
+       <br>
+        <div>
+        
+        <div>
+      <br>  
+       
+          <label>Email Address</label>
+          <input type="email" name="email" id="email" required>
+      
+ </div>
+ <br>
+ 
+    <div>
+      <br>  
+       
+          <label>Password</label>
+          <input type="password" name="password" id="password" required>
+      
+ </div>
+ <br>
+
+<div>
+      <br>  
+       
+          <label>Confirm Password</label>
+          <input type="password" name="confirmpassword" id="confirmpassword" required>
+      
+ </div>
+ <br>
+          <label>Phone Number</label>
+          <input type="text" name="phone" id="phone" required>
+  <br>
+      <br> <br>
+   
+       <button type="submit">Submit</button>
+        <br/> 
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<br/>
+
+
+
+<br/>
+<br/>
+<br/>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style=" margin:0px!important; padding:0px!important;">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16685.144313092685!2d77.05407824236886!3d28.460884089840793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d188d00000027%3A0x3374c3c1365b5a3!2sIT+Training+Institute+In+Gurgaon%3A+AWS%2C+Digital+Marketing+%2C+JAVA%2C+WEB+DESIGNING%2C+Python%2C+Node+Js!5e0!3m2!1sen!2sin!4v1532018995667" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+    </body>
+</html>
